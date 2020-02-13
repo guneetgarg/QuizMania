@@ -28,7 +28,7 @@ public interface Environment extends Config {
     String getDBPassword();
 
     @Key("redis.host")
-    int getRedisHost();
+    String getRedisHost();
 
     @Key("redis.port")
     int getRedisPort();
