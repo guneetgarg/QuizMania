@@ -1,3 +1,4 @@
+import com.utilities.CronExecution;
 import com.utilities.Environment;
 import com.utilities.RedisData;
 import org.testng.annotations.Test;
@@ -17,6 +18,7 @@ public class Demo {
         System.out.println(redis.getHash("wg:21258", "code"));
         //String valu2e = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("env");
 
+        CronExecution cronExecution = new CronExecution();
 
     }
 }

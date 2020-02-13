@@ -2,12 +2,13 @@ package com.utilities;
 
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.ConfigFactory;
-import org.testng.Reporter;
 
 @Config.Sources({
         "classpath:QA.properties" // mention the property file name
 })
 public interface Environment extends Config {
+
+    public static Environment value = ConfigFactory.create(Environment.class);
 
     String url();
 
@@ -27,6 +28,7 @@ public interface Environment extends Config {
     @Key("db.password")
     String getDBPassword();
 
+    //******************** REDIS ********************
     @Key("redis.host")
     String getRedisHost();
 
@@ -36,6 +38,20 @@ public interface Environment extends Config {
     @Key("redis.auth")
     String getRedisAuth();
 
-    public static Environment value = ConfigFactory.create(Environment.class);
+    //******************** SERVER ********************
+    @Key("server.host")
+    String getServerHost();
 
+    @Key("server.user")
+    String getServerUser();
+
+    @Key("server.password")
+    String getServerPassword();
+
+    //******************** Cron ********************
+    @Key("cron.build.command")
+    String getBuildCommand();
+
+    @Key("cron.env")
+    String getCronEnv();
 }
